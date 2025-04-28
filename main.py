@@ -2,7 +2,8 @@ import argparse
 import torch
 import os
 import time
-
+import random
+import numpy as np
 from models.qnet_cnn import QNetCNN
 from models.qnet_mlp import QNetMLP
 from agent.dqn_agent import DQNAgent
@@ -10,6 +11,7 @@ from agent.ddqn_agent import DDQNAgent
 from utils.logger import setup_logging_directories
 from core.train_utils import train_agent
 from core.train_utils import plot_and_save_training_curves
+
 
 def get_agent_and_model(model_type, device):
     if model_type in ['A1', 'B1']:
@@ -27,8 +29,14 @@ def get_agent_and_model(model_type, device):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model_type', type=str, required=True, choices=['A1', 'A2', 'B1', 'B2'])
-    parser.add_argument('--episodes', type=int, default=5000)
+    parser.add_argument('--episodes', type=int, default=800)
+    parser.add_argument('--seed', type=int, default=42)
     args = parser.parse_args()
+
+    #set seeds
+    torch.manual_seed(args.seed)
+    np.random.seed(args.seed)
+    random.seed(args.seed)
 
     model_type = args.model_type
     episodes = args.episodes
@@ -37,7 +45,7 @@ def main():
     print(f"🚀 Starting training with model type: {model_type}")
     print(f"🖥️  Using device: {device}")
 
-    base_dir, dirs = setup_logging_directories(model_type=model_type)
+    base_dir, dirs = setup_logging_directories(model_type=model_type + f"_seed{args.seed}")
     agent, q_net = get_agent_and_model(model_type, device)
 
 
