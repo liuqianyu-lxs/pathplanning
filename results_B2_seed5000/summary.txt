@@ -1,0 +1,7 @@
+Model: B2
+Device: cpu
+Episodes: 3000
+Final test success rate: 4.00%
+Final test avg reward: -24.38
+Max train reward: 925.40 @ Episode 2517
+Total training time: 0h 55m 47s
