@@ -1,0 +1,7 @@
+Model: A2
+Device: cpu
+Episodes: 3000
+Final test success rate: 4.00%
+Final test avg reward: -7.05
+Max train reward: 846.90 @ Episode 2954
+Total training time: 0h 54m 7s

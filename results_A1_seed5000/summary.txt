@@ -1,0 +1,7 @@
+Model: A1
+Device: cpu
+Episodes: 3000
+Final test success rate: 10.00%
+Final test avg reward: 172.21
+Max train reward: 820.70 @ Episode 2483
+Total training time: 0h 12m 36s
