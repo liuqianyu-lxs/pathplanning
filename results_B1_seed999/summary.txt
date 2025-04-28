@@ -1,0 +1,7 @@
+Model: B1
+Device: cpu
+Episodes: 3000
+Final test success rate: 6.00%
+Final test avg reward: 72.78
+Max train reward: 883.90 @ Episode 1661
+Total training time: 0h 13m 56s
